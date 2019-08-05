@@ -8,6 +8,9 @@ install: package.json ## install dependencies
 
 run: run-simple
 
+run-youi: ## run the youi admin
+	@yarn -s run-youi
+
 run-simple: ## run the simple example
 	@yarn -s run-simple
 
