@@ -15,11 +15,12 @@ import users from './users';
 import tags from './tags';
 import home from './home';
 import configure from './configure';
-import layout from './layout';
+import layout from './layout/Layout';
 import clickstream from './clickstream';
 import activity from './activity';
 import viewed from './viewed';
 import location from './location';
+import login from './layout/Login';
 
 render(
     <Admin
@@ -27,6 +28,7 @@ render(
         dataProvider={dataProvider}
         i18nProvider={i18nProvider}
         appLayout={layout}
+        loginPage={login}
         title="Administration"
         locale="en"
         customReducers={{ tree }}

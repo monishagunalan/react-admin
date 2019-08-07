@@ -1,8 +1,6 @@
-import React from 'react';
-import { Layout } from 'react-admin';
+import Layout from './Layout';
 import Menu from './Menu';
 import AppBar from './AppBar';
+import Login from './Login';
 
-const CustomLayout = props => <Layout {...props} menu={Menu} appBar={AppBar} />;
-
-export default CustomLayout;
+export { AppBar, Layout, Menu, Login };
