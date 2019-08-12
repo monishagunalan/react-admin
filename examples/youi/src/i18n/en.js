@@ -96,6 +96,7 @@ export const messages = {
             app: 'Application',
             config: 'Configuration',
             security: 'Security',
+            user: 'Users',
         },
         edit: {
             title: 'User "%{title}"',

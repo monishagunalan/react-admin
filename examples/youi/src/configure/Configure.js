@@ -55,7 +55,7 @@ const UserEditToolbar = ({ permissions, ...props }) => (
 const UserCreate = ({ permissions, ...props }) => (
     <Create {...props} title={'Configure'}>
         <TabbedForm toolbar={<UserEditToolbar permissions={permissions} />}>
-            <FormTab label="user.form.app" path="">
+            <FormTab label="user.form.config" path="">
                 <Table>
                     <TableBody>
                         <TableRow height="50">
@@ -71,12 +71,6 @@ const UserCreate = ({ permissions, ...props }) => (
                                 />
                             </TableCell>
                         </TableRow>
-                    </TableBody>
-                </Table>
-            </FormTab>
-            <FormTab label="user.form.config" path="">
-                <Table>
-                    <TableBody>
                         <TableRow>
                             <TableCell>
                                 <InputLabel>Enable analytics</InputLabel>
@@ -107,19 +101,17 @@ const UserCreate = ({ permissions, ...props }) => (
                     </TableBody>
                 </Table>
             </FormTab>
-            {permissions === 'admin' && (
-                <FormTab label="user.form.security" path="security">
-                    <AutocompleteInput
-                        source="role"
-                        choices={[
-                            { id: '', name: 'None' },
-                            { id: 'admin', name: 'Admin' },
-                            { id: 'user', name: 'User' },
-                            { id: 'user_simple', name: 'UserSimple' },
-                        ]}
-                    />
-                </FormTab>
-            )}
+            <FormTab label="foo" path="security">
+                <AutocompleteInput
+                    source="role"
+                    choices={[
+                        { id: '', name: 'None' },
+                        { id: 'admin', name: 'Admin' },
+                        { id: 'user', name: 'User' },
+                        { id: 'user_simple', name: 'UserSimple' },
+                    ]}
+                />
+            </FormTab>
         </TabbedForm>
     </Create>
 );

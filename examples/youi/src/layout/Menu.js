@@ -39,6 +39,26 @@ class Menu extends Component {
                     onClick={onMenuClick}
                 />
                 <SubMenu
+                    handleToggle={() => this.handleToggle('manage')}
+                    isOpen={this.state.manage}
+                    sidebarIsOpen={open}
+                    name="Manage"
+                    icon={<configure.icon />}
+                >
+                    <MenuItemLink
+                        to={`/configure`}
+                        primaryText={'Configure'}
+                        leftIcon={<configure.icon />}
+                        onClick={onMenuClick}
+                    />
+                    <MenuItemLink
+                        to={`/users`}
+                        primaryText={'Users'}
+                        leftIcon={<users.icon />}
+                        onClick={onMenuClick}
+                    />
+                </SubMenu>
+                <SubMenu
                     handleToggle={() => this.handleToggle('analytics')}
                     isOpen={this.state.analytics}
                     sidebarIsOpen={open}
@@ -76,18 +96,6 @@ class Menu extends Component {
                         onClick={onMenuClick}
                     />
                 </SubMenu>
-                <MenuItemLink
-                    to={`/configure`}
-                    primaryText={'Configure'}
-                    leftIcon={<configure.icon />}
-                    onClick={onMenuClick}
-                />
-                <MenuItemLink
-                    to={`/users`}
-                    primaryText={'users'}
-                    leftIcon={<users.icon />}
-                    onClick={onMenuClick}
-                />
             </div>
         );
     }
