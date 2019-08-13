@@ -4,8 +4,6 @@ import { Admin, Resource } from 'react-admin'; // eslint-disable-line import/no-
 import { render } from 'react-dom';
 import { Route } from 'react-router';
 import { reducer as tree } from 'ra-tree-ui-materialui';
-
-import authProvider from './authProvider';
 import CustomRouteLayout from './customRouteLayout';
 import CustomRouteNoLayout from './customRouteNoLayout';
 import dataProvider from './dataProvider';
@@ -21,6 +19,20 @@ import activity from './activity';
 import viewed from './viewed';
 import location from './location';
 import login from './layout/Login';
+import authProvider from './authProvider';
+
+// aws-cognito integration
+import Amplify from 'aws-amplify';
+import config from '../config';
+
+Amplify.configure({
+    Auth: {
+        mandatorySignId: true,
+        region: config.cognito.REGION,
+        userPoolId: config.cognito.USER_POOL_ID,
+        userPoolWebClientId: config.cognito.APP_CLIENT_ID,
+    },
+});
 
 render(
     <Admin

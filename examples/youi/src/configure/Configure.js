@@ -41,14 +41,6 @@ function handleChange(event) {
 const UserEditToolbar = ({ permissions, ...props }) => (
     <Toolbar {...props}>
         <SaveButton label="SAVE" redirect="show" submitOnEnter={true} />
-        {permissions === 'admin' && (
-            <SaveButton
-                label="SAVE"
-                redirect={false}
-                submitOnEnter={false}
-                variant="flat"
-            />
-        )}
     </Toolbar>
 );
 
@@ -73,12 +65,34 @@ const UserCreate = ({ permissions, ...props }) => (
                         </TableRow>
                         <TableRow>
                             <TableCell>
-                                <InputLabel>Enable analytics</InputLabel>
+                                <InputLabel>Performance Insights</InputLabel>
                             </TableCell>
                             <TableCell>
                                 <Switch />
                             </TableCell>
                         </TableRow>
+                        <TableRow>
+                            <TableCell>
+                                <InputLabel>Life Cycle Analytics</InputLabel>
+                            </TableCell>
+                            <TableCell>
+                                <Switch />
+                            </TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell>
+                                <InputLabel>User Analytics</InputLabel>
+                            </TableCell>
+                            <TableCell>
+                                <Switch />
+                            </TableCell>
+                        </TableRow>
+                    </TableBody>
+                </Table>
+            </FormTab>
+            <FormTab label="Dynamic Assets" path="security">
+                <Table>
+                    <TableBody>
                         <TableRow>
                             <TableCell>
                                 <InputLabel>Dynamic updates</InputLabel>
@@ -100,17 +114,6 @@ const UserCreate = ({ permissions, ...props }) => (
                         </TableRow>
                     </TableBody>
                 </Table>
-            </FormTab>
-            <FormTab label="foo" path="security">
-                <AutocompleteInput
-                    source="role"
-                    choices={[
-                        { id: '', name: 'None' },
-                        { id: 'admin', name: 'Admin' },
-                        { id: 'user', name: 'User' },
-                        { id: 'user_simple', name: 'UserSimple' },
-                    ]}
-                />
             </FormTab>
         </TabbedForm>
     </Create>

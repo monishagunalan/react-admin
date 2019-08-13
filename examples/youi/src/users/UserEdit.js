@@ -16,7 +16,6 @@ import {
 import { withStyles } from '@material-ui/core';
 
 import UserTitle from './UserTitle';
-import Aside from './Aside';
 
 const toolbarStyles = {
     toolbar: {
@@ -38,7 +37,7 @@ const UserEditToolbar = withStyles(toolbarStyles)(props => (
 ));
 
 const UserEdit = ({ permissions, ...props }) => (
-    <Edit title={<UserTitle />} aside={<Aside />} {...props}>
+    <Edit title={<UserTitle />} {...props}>
         <TabbedForm
             defaultValue={{ role: 'user' }}
             toolbar={<UserEditToolbar />}

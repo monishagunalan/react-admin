@@ -15,7 +15,6 @@ import {
     TextInput,
 } from 'react-admin';
 
-import Aside from './Aside';
 import UserEditEmbedded from './UserEditEmbedded';
 export const UserIcon = PeopleIcon;
 
@@ -43,7 +42,6 @@ const UserList = ({ permissions, ...props }) => (
         filters={<UserFilter permissions={permissions} />}
         filterDefaultValues={{ role: 'user' }}
         sort={{ field: 'name', order: 'ASC' }}
-        aside={<Aside />}
         bulkActionButtons={<UserBulkActionButtons />}
     >
         <Responsive
@@ -56,10 +54,7 @@ const UserList = ({ permissions, ...props }) => (
                 />
             }
             medium={
-                <Datagrid
-                    rowClick={rowClick(permissions)}
-                    expand={<UserEditEmbedded />}
-                >
+                <Datagrid rowClick={rowClick(permissions)}>
                     <TextField source="id" />
                     <TextField source="name" />
                     {permissions === 'admin' && <TextField source="role" />}
