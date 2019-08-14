@@ -69,6 +69,7 @@ export const messages = {
             title: 'Post "%{title}"',
         },
         action: {
+            save: 'Save',
             save_and_edit: 'Save and Edit',
             save_and_add: 'Save and Add',
             save_and_show: 'Save and Show',
@@ -102,6 +103,7 @@ export const messages = {
             title: 'User "%{title}"',
         },
         action: {
+            save: 'Save',
             save_and_add: 'Save and Add',
             save_and_show: 'Save and Show',
         },

@@ -4,7 +4,10 @@ The AdminUI for administering You.i applications.
 
 ## How to run
 
-After having cloned the repository, run the following command from the ```react-admin directory```:
+After having cloned the repository, 
+
+1. Make sure you delete any yarn.lock files!
+2. Run the following command from the parent directory: ```react-admin directory```:
 
 ```yarn install```
 
@@ -15,6 +18,10 @@ AFter downloading the internet, run the following commmand:
 Finally browse to [http://localhost:8080/](http://localhost:8080/).
 
 The credentials are **login/password**
+
+## Configuration
+
+> yarn version v1.17.3
 
 ## The basics
 
