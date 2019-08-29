@@ -15,7 +15,6 @@ import {
     TextInput,
 } from 'react-admin';
 
-import UserEditEmbedded from './UserEditEmbedded';
 export const UserIcon = PeopleIcon;
 
 const UserFilter = ({ permissions, ...props }) => (
@@ -56,7 +55,8 @@ const UserList = ({ permissions, ...props }) => (
             medium={
                 <Datagrid rowClick={rowClick(permissions)}>
                     <TextField source="id" />
-                    <TextField source="name" />
+                    <TextField source="fname" />
+                    <TextField source="lname" />
                     {permissions === 'admin' && <TextField source="role" />}
                 </Datagrid>
             }

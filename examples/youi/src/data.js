@@ -504,18 +504,24 @@ export default {
     Users: [
         {
             id: 1,
-            name: 'Logan Schowalter',
+            fname: 'Logan',
+            lname: 'Schowalter',
             role: 'admin',
+            email: 'ls@youi.tv',
         },
         {
             id: 2,
-            name: 'Breanna Gibson',
+            fname: 'Breanna',
+            lname: 'Schowalter',
             role: 'user',
+            email: 'bs@youi.tv',
         },
         {
             id: 3,
-            name: 'Annamarie Mayer',
+            fname: 'Annamarie',
+            lname: 'Gibson',
             role: 'user',
+            email: 'ag@youi.tv',
         },
     ],
 };

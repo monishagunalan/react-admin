@@ -56,9 +56,37 @@ class SaveUserButtonComponent extends Component {
     handleClick = () => {
         const { basePath, handleSubmit, redirect, saveUser } = this.props;
         console.log('Hello World');
+
+        //TODO: make sure passwd and confirm are the same.
+
         return handleSubmit(values => {
             console.log(values);
-            saveUser(values, basePath, redirect);
+            let username = values.email;
+            let password = values.passwd;
+            let fname = values.fname;
+            let lname = values.lname;
+            let activation = values.activated_at;
+            let role = values.role;
+            let active = values.active.toString();
+
+            try {
+                const signUpResponse = Auth.signUp({
+                    username,
+                    password,
+                    lname,
+                    fname,
+                    activation,
+                    role,
+                    active,
+                    attributes: {},
+                });
+                console.log('Register user response: ' + signUpResponse);
+                saveUser(values, basePath, redirect);
+            } catch (error) {
+                let err = null;
+                !error.message ? (err = { message: error }) : (err = error);
+                console.log('Error: ' + err.message);
+            }
         });
     };
 
@@ -85,11 +113,15 @@ const SaveUserButton = connect(
 
 const validateName = [required(), minLength(2), maxLength(15)];
 const validateEmail = [required()];
-const validateUsername = [required(), minLength(4), maxLength(12)];
+
 const PostCreate = withStyles(styles)(({ classes, ...props }) => (
     <Create title={'Create User'} {...props}>
         <SimpleForm toolbar={<CustomToolbar />}>
-            <BooleanInput label="Active Account" source="active" />
+            <BooleanInput
+                label="Active Account"
+                source="active"
+                defaultValue={true}
+            />
             <DisabledInput label="Id" source="id" />
             <TextInput
                 label="First Name"
@@ -98,29 +130,32 @@ const PostCreate = withStyles(styles)(({ classes, ...props }) => (
                 formClassName={classes.inlineBlock}
             />
             <TextInput
-                source="last name"
+                label="Last Name"
+                source="lname"
                 validate={validateName}
                 formClassName={classes.inlineBlock}
             />
-            <TextInput source="email" type="email" validate={validateEmail} />
             <TextInput
-                source="username"
-                validate={validateUsername}
-                formClassName={classes.inlineBlock}
+                label="Email"
+                source="email"
+                type="email"
+                validate={validateEmail}
             />
             <TextInput
-                source="password"
+                label="Password"
+                source="passwd"
                 type="password"
                 formClassName={classes.inlineBlock}
             />
             <TextInput
-                source="password confirm"
+                label="Password Confirm"
+                source="confirm"
                 type="password"
                 formClassName={classes.inlineBlock}
             />
             <DateInput
                 label="Activation Date"
-                source="published_at"
+                source="activated_at"
                 disabled="true"
                 defaultValue={new Date()}
             />
