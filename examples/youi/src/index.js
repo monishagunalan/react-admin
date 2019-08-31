@@ -56,14 +56,22 @@ render(
     >
         {permissions => [
             <Resource name="Home" {...home} />,
-            <Resource name="Configure" {...configure} />,
             <Resource name="Analytics" {...analytics} />,
             <Resource name="ClickStream" {...clickstream} />,
             <Resource name="Viewed" {...viewed} />,
             <Resource name="Location" {...location} />,
             <Resource name="Activity" {...activity} />,
-            <Resource name="Users" {...users} />,
+
             permissions ? <Resource name="tags" {...tags} /> : null,
+
+            // Only include the categories resource for admin users
+            permissions === 'admin' ? (
+                <Resource name="Users" {...users} />
+            ) : null,
+
+            permissions === 'admin' ? (
+                <Resource name="Configure" {...configure} />
+            ) : null,
         ]}
     </Admin>,
     document.getElementById('root')

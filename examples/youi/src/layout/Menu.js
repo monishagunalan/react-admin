@@ -10,7 +10,7 @@ import users from '../users';
 import clickstream from '../clickstream';
 import activity from '../activity';
 import SubMenu from './SubMenu';
-import { translate, MenuItemLink } from 'react-admin';
+import { translate, MenuItemLink, WithPermissions } from 'react-admin';
 import viewed from '../viewed';
 import location from '../location';
 
@@ -38,26 +38,32 @@ class Menu extends Component {
                     leftIcon={<home.icon />}
                     onClick={onMenuClick}
                 />
-                <SubMenu
-                    handleToggle={() => this.handleToggle('manage')}
-                    isOpen={this.state.manage}
-                    sidebarIsOpen={open}
-                    name="Manage"
-                    icon={<configure.icon />}
-                >
-                    <MenuItemLink
-                        to={`/configure`}
-                        primaryText={'Configure'}
-                        leftIcon={<configure.icon />}
-                        onClick={onMenuClick}
-                    />
-                    <MenuItemLink
-                        to={`/users`}
-                        primaryText={'Users'}
-                        leftIcon={<users.icon />}
-                        onClick={onMenuClick}
-                    />
-                </SubMenu>
+                <WithPermissions
+                    render={({ permissions }) =>
+                        permissions === 'admin' ? (
+                            <SubMenu
+                                handleToggle={() => this.handleToggle('manage')}
+                                isOpen={this.state.manage}
+                                sidebarIsOpen={open}
+                                name="Manage"
+                                icon={<configure.icon />}
+                            >
+                                <MenuItemLink
+                                    to={`/configure`}
+                                    primaryText={'Configure'}
+                                    leftIcon={<configure.icon />}
+                                    onClick={onMenuClick}
+                                />
+                                <MenuItemLink
+                                    to={`/users`}
+                                    primaryText={'Users'}
+                                    leftIcon={<users.icon />}
+                                    onClick={onMenuClick}
+                                />
+                            </SubMenu>
+                        ) : null
+                    }
+                />
                 <SubMenu
                     handleToggle={() => this.handleToggle('analytics')}
                     isOpen={this.state.analytics}

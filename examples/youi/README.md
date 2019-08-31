@@ -17,7 +17,10 @@ AFter downloading the internet, run the following commmand:
 
 Finally browse to [http://localhost:8080/](http://localhost:8080/).
 
-The credentials are **login/password**
+Basic credentials are **login/password**
+Admin credentials are **admin/password**
+
+Note: you need to use Admin credentials to access configuration and user administration features.
 
 ## Configuration
 
