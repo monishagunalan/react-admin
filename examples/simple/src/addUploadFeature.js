@@ -1,3 +1,5 @@
+// Called by the dataprovider.js.
+
 const convertFileToBase64 = file =>
     new Promise((resolve, reject) => {
         const reader = new FileReader();

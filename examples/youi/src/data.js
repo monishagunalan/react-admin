@@ -508,6 +508,7 @@ export default {
             lname: 'Schowalter',
             role: 'admin',
             email: 'ls@youi.tv',
+            active: 'true',
         },
         {
             id: 2,
@@ -515,6 +516,7 @@ export default {
             lname: 'Schowalter',
             role: 'user',
             email: 'bs@youi.tv',
+            active: 'true',
         },
         {
             id: 3,
@@ -522,6 +524,7 @@ export default {
             lname: 'Gibson',
             role: 'user',
             email: 'ag@youi.tv',
+            active: 'true',
         },
     ],
 };

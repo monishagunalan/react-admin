@@ -16,7 +16,6 @@ import {
     BooleanInput,
     crudCreate,
 } from 'react-admin';
-
 import { Auth } from 'aws-amplify';
 import { withStyles } from '@material-ui/core/styles';
 
@@ -61,6 +60,7 @@ class SaveUserButtonComponent extends Component {
 
         return handleSubmit(values => {
             console.log(values);
+            let id = values.id;
             let username = values.email;
             let password = values.passwd;
             let fname = values.fname;
@@ -69,24 +69,25 @@ class SaveUserButtonComponent extends Component {
             let role = values.role;
             let active = values.active.toString();
 
-            try {
-                const signUpResponse = Auth.signUp({
-                    username,
-                    password,
-                    lname,
-                    fname,
-                    activation,
-                    role,
-                    active,
-                    attributes: {},
+            const signUpResponse = Auth.signUp({
+                id,
+                username,
+                password,
+                lname,
+                fname,
+                activation,
+                role,
+                active,
+                attributes: {},
+            })
+                .then(data => {
+                    console.log(data);
+                    console.log('Register user response: ' + signUpResponse);
+                })
+                .catch(err => {
+                    console.log(err.message);
                 });
-                console.log('Register user response: ' + signUpResponse);
-                saveUser(values, basePath, redirect);
-            } catch (error) {
-                let err = null;
-                !error.message ? (err = { message: error }) : (err = error);
-                console.log('Error: ' + err.message);
-            }
+            saveUser(values, basePath, redirect);
         });
     };
 
@@ -103,8 +104,9 @@ class SaveUserButtonComponent extends Component {
 }
 
 // Save the user through the react-admin crudCreate component.
-const saveUser = (values, basePath, redirectTo) =>
+const saveUser = (values, basePath, redirectTo) => {
     crudCreate('posts', { ...values }, basePath, redirectTo);
+};
 
 const SaveUserButton = connect(
     undefined,
@@ -122,7 +124,7 @@ const PostCreate = withStyles(styles)(({ classes, ...props }) => (
                 source="active"
                 defaultValue={true}
             />
-            <DisabledInput label="Id" source="id" />
+            <DisabledInput label="UUID" source="id" />
             <TextInput
                 label="First Name"
                 source="fname"
@@ -164,7 +166,7 @@ const PostCreate = withStyles(styles)(({ classes, ...props }) => (
                 source="role"
                 choices={[
                     { id: 'user', name: 'User' },
-                    { id: 'administrator', name: 'Administrator' },
+                    { id: 'admin', name: 'Administrator' },
                 ]}
             />
         </SimpleForm>
