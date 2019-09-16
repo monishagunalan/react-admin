@@ -2,7 +2,7 @@
 
 A frontend Framework for building admin applications running in the browser on top of REST/GraphQL APIs, using ES6, [React](https://facebook.github.io/react/) and [Material Design](https://material.io/). Previously named [admin-on-rest](https://github.com/marmelab/admin-on-rest). Open sourced and maintained by [marmelab](https://marmelab.com/).
 
-[Demo](https://marmelab.com/react-admin-demo/) - [Documentation](https://marmelab.com/react-admin/) - [News](https://marmelab.com/en/blog/#react-admin) - [Releases](https://github.com/marmelab/react-admin/releases) - [Support](http://stackoverflow.com/questions/tagged/react-admin)
+[Home page](https://marmelab.com/react-admin/) - [Documentation](https://marmelab.com/react-admin/Tutorial.html) - [Demo](https://marmelab.com/react-admin-demo/) - [Blog](https://marmelab.com/en/blog/#react-admin) - [Releases](https://github.com/marmelab/react-admin/releases) - [Support](http://stackoverflow.com/questions/tagged/react-admin)
 
 [![react-admin-demo](https://marmelab.com/react-admin/img/react-admin-demo-still.png)](https://vimeo.com/268958716)
 
@@ -181,7 +181,7 @@ When developing, most of the time we use the simple example to do visual check. 
 
 However, the simple example is sometimes too limited. You can use the demo example, which is more complete, to test your changes. Unfortunately, due to the fact that we use Create React App for this demo, the `make run-demo` command doesn't watch the changes made in the packages. You'll have to rebuild the packages after a change (using `make build`, or the more targeted `make build-ra-core`, `make build-ra-ui-materialui`, etc) to see the effect in the demo app. 
 
-Automated tests are also crusial in our development process. You can run all the tests (linting, unit and functional tests) by calling:
+Automated tests are also crucial in our development process. You can run all the tests (linting, unit and functional tests) by calling:
 
 ```sh
 make test
