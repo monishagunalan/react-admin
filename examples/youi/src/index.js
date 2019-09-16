@@ -22,8 +22,12 @@ import login from './layout/Login';
 import authProvider from './authProvider';
 
 // aws-cognito integration
+//import { AuthProvider, Login } from 'ra-cognito';
 import Amplify from 'aws-amplify';
 import config from '../config';
+
+// AWS Cognito login ... now to hook it up!
+//https://youi-admin.auth.us-east-1.amazoncognito.com/login?client_id=46ds0sdku9fiaoc1crujud417n&redirect_uri=http://localhost:8080/&response_type=code
 
 Amplify.configure({
     Auth: {
