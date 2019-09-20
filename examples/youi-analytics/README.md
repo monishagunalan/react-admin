@@ -5,15 +5,15 @@ There are two components to this project
 
 Step 1: In the project directory youi-analytics/backend
 -------------------------------------------------------
-Replace the reference to the environment variable with correct values in `.env` file 
+Replace the reference to the environment variables with correct values in `youi-analytics/backend/.env` file 
 
-In the current directory, you can run:
+In the current directory, run this command:
 ### `npm run dev`
 
 
 Step 2: In the project directory youi-analytics/dashboard
 ---------------------------------------------------------
-Replace the reference to the environment variable with correct values in `.env` file 
+Replace the reference to the environment variables with correct values in `youi-analytics/dashboard/.env` file 
 
-In the current directory, you can run:
+In the current directory, run this command:
 ### `npm start`
