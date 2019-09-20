@@ -28,10 +28,10 @@ const PieChart = ({ resultSet }) => {
     };
 
     return (
-        <div style={{ height: 500 }}>
+        <div style={{ height: 300, width: '100%' }}>
             <ResponsivePie
                 data={data}
-                margin={{ top: 10, right: 10, bottom: 10, left: 10 }}
+                margin={{ top: 20, right: 10, bottom: 10, left: 10 }}
                 sortByValue={true}
                 innerRadius={0.5}
                 padAngle={1}
