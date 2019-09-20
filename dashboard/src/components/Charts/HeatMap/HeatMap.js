@@ -21,24 +21,6 @@ class HeatMap extends Component {
         }
     }
 
-    // onMapClick({ x, y, lat, lng, event }) {
-    //     if (this._googleMap !== undefined) {
-    //         const point = new google.maps.LatLng(lat, lng)
-    //         this._googleMap.heatmap.data.push(point)
-    //     }
-    // }
-
-    toggleHeatMap() {
-        this.setState({
-            heatmapVisible: !this.state.heatmapVisible
-        }, () => {
-            if (this._googleMap !== undefined) {
-                this._googleMap.heatmap.setMap(this.state.heatmapVisible ?
-                    this._googleMap.map_ : null)
-            }
-        })
-    }
-
     render() {
         return (
             // Important! Always set the container height explicitly
@@ -46,7 +28,7 @@ class HeatMap extends Component {
                 <GoogleMapReact
                     ref={(el) => this._googleMap = el}
                     bootstrapURLKeys={{
-                        key: process.env.GOOGLE_MAP_API_KEY,
+                        key: process.env.REACT_APP_GOOGLE_MAP_API_KEY,
                     }}
                     defaultCenter={this.props.center}
                     defaultZoom={this.props.zoom}

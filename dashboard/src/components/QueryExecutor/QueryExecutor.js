@@ -5,7 +5,7 @@ import { Spin } from 'antd';
 
 const API_URL = 'http://localhost:4000';
 const cubejsApi = cubejs(
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1Njc2MDk3ODcsImV4cCI6MTU2NzY5NjE4N30.wTWi_Az27UJqkHBhmLiq7BJID8aeS2-LKD6mH5_tIXM',
+    process.env.REACT_APP_CUBE_API, 
     {
         apiUrl: API_URL + '/cubejs-api/v1',
     }
