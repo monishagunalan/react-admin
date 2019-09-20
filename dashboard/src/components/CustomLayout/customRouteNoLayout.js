@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { crudGetList as crudGetListAction } from 'react-admin'; // eslint-disable-line import/no-unresolved
 
 class CustomRouteNoLayout extends Component {
-    componentWillMount() {
+    UNSAFE_componentWillMount() {
         this.props.crudGetList(
             'posts',
             { page: 0, perPage: 10 },
